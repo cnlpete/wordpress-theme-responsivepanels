@@ -1,0 +1,54 @@
+/*
+Theme Name:     Responsive Panels
+Theme URI:      http://panels.cnlpete.de
+Description:    responsive panels theme inspired by panels
+Author:         Hauke Schade
+Author URI:     http://hauke-schade.de/
+Template:       responsivepanels
+Version:        0.0.1
+*/
+
+.white-box {
+	background: white;
+	margin-bottom: 10px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	padding: 15px;
+}
+
+.post {
+	margin-bottom: 15px;
+}
+
+.text-title {
+	padding-right: 50px;
+	min-height: 40px;
+}
+.postimage {
+	text-align: center;
+}
+
+.postdate {
+	width: 46px;
+	height: 65px;
+	padding: 6px;
+	display: block;
+	overflow: hidden;
+	font-family: arial;
+	font-size: 12px;
+	font-weight: bold;
+	color: #FFFFFF;
+	text-shadow: #000000 0px 0px 3px;
+	line-height:1.2em;
+	position: absolute;
+	right: 20px;
+	top: -5px;
+	background: url('img/post_date.png') no-repeat;
+}
+.postday,
+.postmonth,
+.postyear {
+	clear: both;
+	text-align: center;
+	width: 100%;
+}

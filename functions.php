@@ -1,0 +1,213 @@
+<?php
+
+if (!is_admin())
+	add_action('wp_enqueue_scripts', 'responsivepanels_js');
+
+function responsivepanels_js() {
+	wp_enqueue_style('responsivepanels-style', get_stylesheet_uri());
+	if ( is_singular() && get_option('thread_comments') )
+		wp_enqueue_script('comment-reply');
+}
+
+add_theme_support('post-thumbnails');
+set_post_thumbnail_size(200, 200, true);
+
+function responsivepanels_main_image() {
+	$files = get_children('post_parent='.get_the_ID().'&post_type=attachment&post_mime_type=image&order=desc');
+	if($files) :
+		$keys = array_reverse(array_keys($files));
+		$j=0;
+		$num = $keys[$j];
+		$image=wp_get_attachment_image($num, 'large', true);
+		$imagepieces = explode('"', $image);
+		$imagepath = $imagepieces[1];
+		$main=wp_get_attachment_url($num);
+		$template=get_template_directory();
+		$the_title=the_title_attribute( 'echo=0');
+		print "<img src='$main' alt='$the_title' />";
+	endif;
+}
+
+function responsivepanels_menu() {
+	register_nav_menus(
+		array(
+			'header-menu' => __('Header Menu', 'responsivepanels'),
+			'left-footer-menu' => __('Left Footer Menu', 'responsivepanels'),
+			'right-footer-menu' => __('Right Footer Menu', 'responsivepanels')
+		)
+	);
+}
+add_action('init', 'responsivepanels_menu');
+
+$custom_header_support = array(
+	'default-image' => get_template_directory_uri() . '/headers/001.jpg',
+	'width' => apply_filters('responsivepanels_header_image_width', 938),
+	'height' => apply_filters('responsivepanels_header_image_height', 180),
+	'flex-height' => true,
+	'flex-width' => true,
+	'header-text' => false,
+	'uploads' => true,
+);
+add_theme_support('custom-header', $custom_header_support);
+
+register_default_headers(array(
+	'bluesky' => array(
+		'url' => '%s/headers/001.jpg',
+		'thumbnail_url' => '%s/headers/thumbnails/001_thumb.jpg',
+		'description' => __('Rainbow Lake', 'responsivepanels')
+	),
+	'grass' => array(
+		'url' => '%s/headers/002.jpg',
+		'thumbnail_url' => '%s/headers/thumbnails/002_thumb.jpg',
+		'description' => __('Green Fields', 'responsivepanels')
+	),
+	'wave' => array(
+		'url' => '%s/headers/003.jpg',
+		'thumbnail_url' => '%s/headers/thumbnails/003_thumb.jpg',
+		'description' => __('Haze', 'responsivepanels')
+	),
+));
+
+add_theme_support('custom-background', array(
+	'default-image' => get_stylesheet_directory_uri() . '/img/bg.jpg',
+	'default-color' => 'FFFFFF'
+));
+
+function responsivepanels_title($title) {
+	if ($title == '') {
+		return __('Untitled Post', 'responsivepanels');
+	} else {
+		return $title;
+	}
+}
+//add_filter('the_title', 'responsivepanels_title');
+
+function responsivepanels_custom_excerpt_length($length) {
+	return 40;
+}
+add_filter('excerpt_length', 'responsivepanels_custom_excerpt_length', 999);
+
+function responsivepanels_widgets_init() {
+	register_sidebar(array(
+		'name' => __('Footer Left', 'responsivepanels'),
+		'id' => 'footer-left',
+		'description' => __('The left footer widget area.', 'responsivepanels'),
+		'before_widget' => '<div class="white-box">',
+		'after_widget' => '</div>',
+		'before_title' => '<h2>',
+		'after_title' => '</h2>',
+	));
+
+	register_sidebar(array(
+		'name' => __('Footer Right', 'responsivepanels'),
+		'id' => 'footer-right',
+		'description' => __('The right footer widget area.', 'responsivepanels'),
+		'before_widget' => '<div class="white-box">',
+		'after_widget' => '</div>',
+		'before_title' => '<h2>',
+		'after_title' => '</h2>',
+	));
+}
+add_action('widgets_init', 'responsivepanels_widgets_init');
+
+function responsivepanels_comment( $comment, $args, $depth ) {
+	$GLOBALS['comment'] = $comment;
+	switch ( $comment->comment_type ) :
+		case '' :
+	?>
+	<li <?php comment_class(); ?> id="li-comment-<?php comment_ID(); ?>">
+		<div id="comment-<?php comment_ID(); ?>">
+			<div class="comment-author vcard">
+				<?php echo get_avatar( $comment, 40 ); ?>
+				<?php printf(__('%s <span class="says">says:</span>', 'responsivepanels'), sprintf('<cite class="fn">%s</cite>', get_comment_author_link())); ?>
+			</div><!-- .comment-author .vcard -->
+			<?php if($comment->comment_approved == '0') : ?>
+				<em class="comment-awaiting-moderation"><?php _e('Your comment is awaiting moderation.', 'responsivepanels'); ?></em>
+				<br />
+			<?php endif; ?>
+
+			<div class="comment-meta commentmetadata">
+				<a href="<?php echo esc_url(get_comment_link($comment->comment_ID )); ?>">
+					<?php
+						/* translators: 1: date, 2: time */
+						printf(__( '%1$s at %2$s', 'responsivepanels' ), 
+								get_comment_date(), 
+								get_comment_time()); ?>
+				</a>
+				<?php edit_comment_link(__('(Edit)', 'responsivepanels'), ' '); ?>
+			</div><!-- .comment-meta .commentmetadata -->
+
+			<div class="comment-body"><?php comment_text(); ?></div>
+
+			<div class="reply">
+				<?php comment_reply_link(array_merge($args, array('depth' => $depth, 'max_depth' => $args['max_depth']))); ?>
+			</div><!-- .reply -->
+		</div><!-- #comment-##  -->
+	</li>
+	<?php
+			break;
+		case 'pingback'  :
+		case 'trackback' :
+	?>
+	<li class="post pingback">
+		<p>
+			<?php _e('Pingback:', 'responsivepanels'); ?> 
+			<?php comment_author_link(); ?>
+			<?php edit_comment_link(__('(Edit)','responsivepanels'), ' '); ?>
+		</p>
+	</li>
+	<?php
+		break;
+	endswitch;
+}
+
+//Required by WordPress
+add_theme_support('automatic-feed-links');
+
+//LOCALIZATION
+//Enable localization
+load_theme_textdomain('responsivepanels', get_template_directory() . '/languages');
+
+// filter function for wp_title
+function responsivepanels_filter_wp_title( $old_title, $sep, $sep_location ){
+	// add padding to the sep
+	$ssep = ' ' . $sep . ' ';
+
+	// find the type of index page this is
+	if( is_tag() ) 
+		$insert = $ssep . __('Tag', 'responsivepanels');
+	elseif( is_author() ) 
+		$insert = $ssep . __('Author', 'responsivepanels');
+	elseif( !is_category() && (is_year() || is_month() || is_day()) ) 
+		$insert = $ssep . __('Archive', 'responsivepanels');
+	else 
+		$insert = NULL;
+
+	// get the page number we're on (index)
+	if(get_query_var('paged'))
+		$num = sprintf($ssep . __('Page %s', 'responsivepanels'), get_query_var( 'paged' ));
+
+	// get the page number we're on (multipage post)
+	elseif(get_query_var('page'))
+		$num = sprintf($ssep . __('Page %s', 'responsivepanels'), get_query_var( 'page' ));
+
+	// else
+	else
+		$num = NULL;
+
+	// concoct and return new title
+	return get_bloginfo('name') . $insert . $old_title . $num;
+}
+add_filter('wp_title', 'responsivepanels_filter_wp_title', 10, 3);
+
+// add some bootstrap styles
+wp_register_style('bootstrap-flatly', '//netdna.bootstrapcdn.com/bootswatch/3.0.0/flatly/bootstrap.min.css');
+// add the bootstrap js
+wp_register_script('bootstrap-js', '//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js');
+// add the masonry js
+wp_register_script('masonry', get_template_directory_uri() . '/jquery.masonry.min.js');
+// add the imagesLoaded js
+wp_register_script('imagesloaded', get_template_directory_uri() . '/jquery.imagesloaded.min.js');
+
+require ( get_template_directory() . '/wp_bootstrap_navwalker.php' );
+?>
