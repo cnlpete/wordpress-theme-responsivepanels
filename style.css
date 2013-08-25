@@ -8,6 +8,10 @@ Template:       responsivepanels
 Version:        0.0.1
 */
 
+#headerimage img {
+	width: 100%;
+}
+
 .white-box {
 	background: white;
 	margin-bottom: 10px;
