@@ -201,7 +201,18 @@ function responsivepanels_filter_wp_title( $old_title, $sep, $sep_location ){
 add_filter('wp_title', 'responsivepanels_filter_wp_title', 10, 3);
 
 // add some bootstrap styles
+wp_register_style('bootstrap-amelia', '//netdna.bootstrapcdn.com/bootswatch/3.0.0/amelia/bootstrap.min.css');
+wp_register_style('bootstrap-cerulean', '//netdna.bootstrapcdn.com/bootswatch/3.0.0/cerulean/bootstrap.min.css');
+wp_register_style('bootstrap-cosmo', '//netdna.bootstrapcdn.com/bootswatch/3.0.0/cosmo/bootstrap.min.css');
+wp_register_style('bootstrap-cyborg', '//netdna.bootstrapcdn.com/bootswatch/3.0.0/cyborg/bootstrap.min.css');
 wp_register_style('bootstrap-flatly', '//netdna.bootstrapcdn.com/bootswatch/3.0.0/flatly/bootstrap.min.css');
+wp_register_style('bootstrap-journal', '//netdna.bootstrapcdn.com/bootswatch/3.0.0/journal/bootstrap.min.css');
+wp_register_style('bootstrap-readable', '//netdna.bootstrapcdn.com/bootswatch/3.0.0/readable/bootstrap.min.css');
+wp_register_style('bootstrap-simplex', '//netdna.bootstrapcdn.com/bootswatch/3.0.0/simplex/bootstrap.min.css');
+wp_register_style('bootstrap-slate', '//netdna.bootstrapcdn.com/bootswatch/3.0.0/slate/bootstrap.min.css');
+wp_register_style('bootstrap-spacelab', '//netdna.bootstrapcdn.com/bootswatch/3.0.0/spacelab/bootstrap.min.css');
+wp_register_style('bootstrap-united', '//netdna.bootstrapcdn.com/bootswatch/3.0.0/united/bootstrap.min.css');
+
 // add the bootstrap js
 wp_register_script('bootstrap-js', '//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js');
 // add the masonry js
