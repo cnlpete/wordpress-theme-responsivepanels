@@ -42,15 +42,14 @@
 			</a>
 		</div>
 		<div class="collapse navbar-collapse navbar-ex1-collapse">
-			<?php
-$args = array(
-	'child_of' => 2,
-	'title_li' => '',
-	'depth' => 1);
-			?>
-			<ul class="nav navbar-nav">
-				<?php wp_list_categories($args); ?>
-			</ul>
+			<?php wp_nav_menu( array(
+				'theme_location' => 'header-menu',
+				'depth' => 3,
+				'container' => false,
+				'menu_class' => 'nav navbar-nav',
+				'fallback_cb' => 'wp_page_menu',
+				//Process nav menu using our custom nav walker
+				'walker' => new wp_bootstrap_navwalker())); ?>
 		</div>
 	</nav>
 

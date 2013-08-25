@@ -1,21 +1,29 @@
 	<div class="row">
 
 		<div class="col-xs-12 col-sm-6">
-			<?php wp_nav_menu(array(
-					'theme_location' => 'left-footer-menu',
-					'depth' => '3',
-					'menu_class' => 'white-box',
-					'items_wrap' => '<ul id="%1$s" class="%2$s">%3$s</ul>')); ?>
+			<?php wp_nav_menu( array(
+				'theme_location' => 'left-footer-menu',
+				'depth' => 0,
+				'container' => 'div',
+				'container_class' => 'white-box',
+				'menu_class' => 'nav nav-pills nav-stacked',
+				'fallback_cb' => 'wp_page_menu',
+				//Process nav menu using our custom nav walker
+				'walker' => new wp_bootstrap_navwalker())); ?>
 
 			<?php dynamic_sidebar('footer-left'); ?>
 		</div>
 
 		<div class="col-xs-12 col-sm-6">
-			<?php wp_nav_menu(array(
-					'theme_location' => 'right-footer-menu',
-					'depth' => '3',
-					'menu_class' => 'white-box',
-					'items_wrap' => '<ul id="%1$s" class="%2$s">%3$s</ul>')); ?>
+			<?php wp_nav_menu( array(
+				'theme_location' => 'right-footer-menu',
+				'depth' => 0,
+				'container' => 'div',
+				'container_class' => 'white-box',
+				'menu_class' => 'nav nav-pills nav-stacked',
+				'fallback_cb' => 'wp_page_menu',
+				//Process nav menu using our custom nav walker
+				'walker' => new wp_bootstrap_navwalker())); ?>
 
 			<?php dynamic_sidebar('footer-right'); ?>
 		</div>
