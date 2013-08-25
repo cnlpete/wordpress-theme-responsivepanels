@@ -12,6 +12,10 @@ Version:        0.0.1
 	width: 100%;
 }
 
+.imagebox img {
+	max-width: 100%;
+}
+
 .white-box {
 	background: white;
 	margin-bottom: 10px;
