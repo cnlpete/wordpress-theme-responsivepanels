@@ -8,7 +8,16 @@
 				<div class="postmonth"><?php echo get_the_date('M'); ?></div>
 				<div class="postyear"><?php echo get_the_date('\'y'); ?></div>
 			</div>
-			<header class="white-box"><h1><?php the_title()?></h1></header>
+			<header class="white-box">
+				<h1><?php the_title()?></h1>
+				<div class="text-right">
+					<?php if ( comments_open() ) : ?>
+						<span class="comments-link">
+							<?php comments_popup_link(); ?>
+						</span>
+					<?php endif; ?>
+				</div>
+			</header>
 			<article class="white-box">
 				<?php the_content()?>
 			</article>
