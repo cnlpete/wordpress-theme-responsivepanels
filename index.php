@@ -5,7 +5,7 @@
 <div class="row js-myposts">
 	<?php while (have_posts()) : the_post(); ?>
 
-		<div <?php post_class('col-sm-4 col-md-3 col-lg-2')?>>
+		<div <?php post_class('col-xs-6 col-sm-4 col-md-3 col-lg-2')?>>
 			<div class="white-box">
 				<div class="postdate">
 					<div class="postday"><?php echo get_the_date('jS'); ?></div>

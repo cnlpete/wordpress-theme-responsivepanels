@@ -3,12 +3,15 @@
 <div class="row">
 	<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 		<article <?php post_class('col-xs-12')?>>
+			<div class="postdate">
+				<div class="postday"><?php echo get_the_date('jS'); ?></div>
+				<div class="postmonth"><?php echo get_the_date('M'); ?></div>
+				<div class="postyear"><?php echo get_the_date('\'y'); ?></div>
+			</div>
 			<header class="white-box"><h1><?php the_title()?></h1></header>
-
 			<article class="white-box">
 				<?php the_content()?>
 			</article>
-
 			<footer class="white-box">
 				<?php the_date()?> <a href="<?php the_permalink(); ?>"><?php _e('Permalink');?></a> <?php wp_link_pages( array( 'before' => __('Pages'), 'after' =>'' ) ); ?><br/>
 				<?php _e('Categories');?>: <?php the_category(', '); ?>
