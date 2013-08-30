@@ -92,6 +92,28 @@ function responsivepanels_widgets_init() {
 }
 add_action('widgets_init', 'responsivepanels_widgets_init');
 
+// comment form defaults
+function responsivepanels_comment_fields($fields) {
+	$commenter = wp_get_current_commenter();
+	$req = get_option('require_name_email');
+	$aria_req = ($req ? " aria-required='true'" : '');
+	$req_string = ($req ? ' <span class="required">*</span>' : '');
+
+	$fields['author'] = '<div class="comment-form-author form-group">' .
+		'<label for="author">' . __('Name', 'responsivepanels') . $req_string . '</label> ' .
+		'<input id="author" name="author" type="text" value="' . esc_attr($commenter['comment_author']) . '" class="form-control"' . $aria_req . ' /></div>';
+
+	$fields['email'] = '<div class="comment-form-email form-group">' .
+		'<label for="email">' . __('Email', 'responsivepanels') . $req_string . '</label> ' .
+		'<input id="email" name="email" type="email" value="' . esc_attr($commenter['comment_author_email']) . '" class="form-control"' . $aria_req . ' />' .
+		'<p class="comment-notes help-block">' . __( 'Your email address will not be published.', 'responsivepanels') . ($req ? $required_text : '') . '</p>' .
+		'</div>';
+
+	$fields['url'] = '<div class="comment-form-url form-group">' .
+		'<label for="url">' . __('Website', 'responsivepanels') . '</label> ' .
+		'<input id="url" name="url" type="url" type="text" value="' . esc_attr($commenter['comment_author_url']) . '" class="form-control" /></div>';
+
+	return $fields;
 function responsivepanels_comment( $comment, $args, $depth ) {
 	$GLOBALS['comment'] = $comment;
 	switch ( $comment->comment_type ) :
@@ -142,6 +164,31 @@ function responsivepanels_comment( $comment, $args, $depth ) {
 		break;
 	endswitch;
 }
+add_filter('comment_form_default_fields', 'responsivepanels_comment_fields');
+
+function responsivepanels_comment_form_defaults($defaults) {
+	$user = wp_get_current_user();
+	$user_identity = $user->exists() ? $user->display_name : '';
+
+	$defaults['comment_field'] = '<div class="comment-form-comment form-group">' .
+		'<label for="comment">' . _x('Comment', 'noun', 'responsivepanels') . '</label>' .
+		'<textarea id="comment" name="comment" cols="45" rows="8" aria-required="true" class="form-control"></textarea></div>';
+	$defaults['must_log_in'] = '<div class="must-log-in">' . 
+		sprintf(__('You must be <a href="%s">logged in</a> to post a comment.', 'responsivepanels'), 
+			wp_login_url(apply_filters('the_permalink', get_permalink($post_id)))) .
+		'</div>';
+	$defaults['logged_in_as'] = '<div class="logged-in-as">' . 
+		sprintf(__('Logged in as <a href="%1$s">%2$s</a>. <a href="%3$s" title="Log out of this account">Log out?</a>'),
+			get_edit_user_link(),
+			$user_identity,
+			wp_logout_url(apply_filters('the_permalink', get_permalink($post_id)))) .
+		'</div>';
+	$defaults['comment_notes_before'] = sprintf(' ' . __('Required fields are marked %s', 'responsivepanels'), '<span class="required">*</span>');
+	$defaults['comment_notes_after'] = '<p class="form-allowed-tags help-block">' . sprintf(__('You may use these <abbr title="HyperText Markup Language">HTML</abbr> tags and attributes: %s', 'responsivepanels'), ' <pre class=".pre-scrollable">' . allowed_tags() . '</pre>') . '</p>';
+	$defaults['format'] = 'html5';
+	return $defaults;
+}
+add_filter('comment_form_defaults', 'responsivepanels_comment_form_defaults', 999);
 
 //Required by WordPress
 add_theme_support('automatic-feed-links');

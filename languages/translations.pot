@@ -4,13 +4,36 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Responsive Panels 0.0.1\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tags/responsivepanels\n"
-"POT-Creation-Date: 2013-08-30 17:07:52+00:00\n"
+"POT-Creation-Date: 2013-08-30 18:32:11+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "PO-Revision-Date: 2013-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+
+#: comments.php:4
+msgid ""
+"This post is password protected. Enter the password to view any comments."
+msgstr ""
+
+#: comments.php:15
+msgid "One Response to %2$s"
+msgid_plural "%1$s Responses to %2$s"
+msgstr[0] ""
+msgstr[1] ""
+
+#: comments.php:23 comments.php:34
+msgid "<span class=\"meta-nav\">&larr;</span> Older Comments"
+msgstr ""
+
+#: comments.php:24 comments.php:35
+msgid "Newer Comments <span class=\"meta-nav\">&rarr;</span>"
+msgstr ""
+
+#: comments.php:42
+msgid "Comments are closed."
+msgstr ""
 
 #: footer.php:37
 msgid "Archives"
@@ -54,45 +77,69 @@ msgstr ""
 msgid "The right footer widget area."
 msgstr ""
 
-#: functions.php:104
-msgid "%s <span class=\"says\">says:</span>"
+#: functions.php:103
+msgid "Name"
 msgstr ""
 
 #: functions.php:107
-msgid "Your comment is awaiting moderation."
+msgid "Email"
 msgstr ""
 
-#. translators: 1: date, 2: time
-#: functions.php:115
-msgid "%1$s at %2$s"
+#: functions.php:109
+msgid "Your email address will not be published."
 msgstr ""
 
-#: functions.php:119 functions.php:138 image.php:24
-msgid "(Edit)"
+#: functions.php:113
+msgid "Website"
 msgstr ""
 
-#: functions.php:136
-msgid "Pingback:"
+#: functions.php:122
+msgctxt "noun"
+msgid "Comment"
 msgstr ""
 
-#: functions.php:160
+#: functions.php:125
+msgid "You must be <a href=\"%s\">logged in</a> to post a comment."
+msgstr ""
+
+#: functions.php:129
+msgid ""
+"Logged in as <a href=\"%1$s\">%2$s</a>. <a href=\"%3$s\" title=\"Log out of "
+"this account\">Log out?</a>"
+msgstr ""
+
+#: functions.php:134
+msgid "Required fields are marked %s"
+msgstr ""
+
+#: functions.php:135
+msgid ""
+"You may use these <abbr title=\"HyperText Markup Language\">HTML</abbr> tags "
+"and attributes: %s"
+msgstr ""
+
+#: functions.php:155
 msgid "Tag"
 msgstr ""
 
-#: functions.php:162
+#: functions.php:157
 msgid "Author"
 msgstr ""
 
-#: functions.php:164
+#: functions.php:159
 msgid "Archive"
 msgstr ""
 
-#: functions.php:170 functions.php:174
+#: functions.php:165 functions.php:169
 msgid "Page %s"
 msgstr ""
 
 #: header.php:35
 msgid "Toggle navigation"
+msgstr ""
+
+#: image.php:24
+msgid "(Edit)"
 msgstr ""
 
 #: image.php:35
@@ -143,7 +190,7 @@ msgstr ""
 msgid "Search Results for: %s"
 msgstr ""
 
-#: searchform.php:3 searchform.php:5
+#: searchform.php:3 searchform.php:4 searchform.php:6
 msgid "Search"
 msgstr ""
 
