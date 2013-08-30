@@ -25,8 +25,8 @@ endif;
 		</ul>
 	<?php endif; ?>
 
-	<ol class="commentlist">
-		<?php wp_list_comments('avatar_size=60'); ?>
+	<ol class="commentlist media-list">
+		<?php wp_list_comments('callback=responsivepanels_comment'); ?>
 	</ol>
 
 	<?php if(get_comment_pages_count() > 1 && get_option('page_comments')): ?>

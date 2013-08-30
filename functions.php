@@ -114,55 +114,6 @@ function responsivepanels_comment_fields($fields) {
 		'<input id="url" name="url" type="url" type="text" value="' . esc_attr($commenter['comment_author_url']) . '" class="form-control" /></div>';
 
 	return $fields;
-function responsivepanels_comment( $comment, $args, $depth ) {
-	$GLOBALS['comment'] = $comment;
-	switch ( $comment->comment_type ) :
-		case '' :
-	?>
-	<li <?php comment_class(); ?> id="li-comment-<?php comment_ID(); ?>">
-		<div id="comment-<?php comment_ID(); ?>">
-			<div class="comment-author vcard">
-				<?php echo get_avatar( $comment, 40 ); ?>
-				<?php printf(__('%s <span class="says">says:</span>', 'responsivepanels'), sprintf('<cite class="fn">%s</cite>', get_comment_author_link())); ?>
-			</div><!-- .comment-author .vcard -->
-			<?php if($comment->comment_approved == '0') : ?>
-				<em class="comment-awaiting-moderation"><?php _e('Your comment is awaiting moderation.', 'responsivepanels'); ?></em>
-				<br />
-			<?php endif; ?>
-
-			<div class="comment-meta commentmetadata">
-				<a href="<?php echo esc_url(get_comment_link($comment->comment_ID )); ?>">
-					<?php
-						/* translators: 1: date, 2: time */
-						printf(__( '%1$s at %2$s', 'responsivepanels' ), 
-								get_comment_date(), 
-								get_comment_time()); ?>
-				</a>
-				<?php edit_comment_link(__('(Edit)', 'responsivepanels'), ' '); ?>
-			</div><!-- .comment-meta .commentmetadata -->
-
-			<div class="comment-body"><?php comment_text(); ?></div>
-
-			<div class="reply">
-				<?php comment_reply_link(array_merge($args, array('depth' => $depth, 'max_depth' => $args['max_depth']))); ?>
-			</div><!-- .reply -->
-		</div><!-- #comment-##  -->
-	</li>
-	<?php
-			break;
-		case 'pingback'  :
-		case 'trackback' :
-	?>
-	<li class="post pingback">
-		<p>
-			<?php _e('Pingback:', 'responsivepanels'); ?> 
-			<?php comment_author_link(); ?>
-			<?php edit_comment_link(__('(Edit)','responsivepanels'), ' '); ?>
-		</p>
-	</li>
-	<?php
-		break;
-	endswitch;
 }
 add_filter('comment_form_default_fields', 'responsivepanels_comment_fields');
 
@@ -189,6 +140,59 @@ function responsivepanels_comment_form_defaults($defaults) {
 	return $defaults;
 }
 add_filter('comment_form_defaults', 'responsivepanels_comment_form_defaults', 999);
+
+function responsivepanels_comment( $comment, $args, $depth ) {
+	$GLOBALS['comment'] = $comment;
+	switch ( $comment->comment_type ) :
+		case '' :
+	?>
+	<li <?php comment_class('media'); ?> id="comment-<?php comment_ID(); ?>">
+		<a class="comment-author vcard pull-left" href="#comment-<?php comment_ID(); ?>">
+			<?php echo get_avatar($comment, 100); ?>
+		</a>
+		<div class="media-body">
+			<div class="media-heading">
+				<h4>
+					<?php printf(__('%s <span class="says">says:</span>', 'responsivepanels'), sprintf('<cite class="fn">%s</cite>', get_comment_author_link())); ?>
+				</h4>
+			<?php if($comment->comment_approved == '0') : ?>
+				<p class="comment-awaiting-moderation"><?php _e('Your comment is awaiting moderation.', 'responsivepanels'); ?></p>
+			<?php endif; ?>
+				<p class="comment-meta commentmetadata">
+					<a href="<?php echo esc_url(get_comment_link($comment->comment_ID )); ?>">
+						<?php
+							/* translators: 1: date, 2: time */
+							printf(__( '%1$s at %2$s', 'responsivepanels' ), 
+									get_comment_date(), 
+									get_comment_time()); ?>
+					</a>
+					<?php edit_comment_link(__('(Edit)', 'responsivepanels'), ' '); ?>
+				</p>
+			</div>
+
+			<div class="comment-body"><?php comment_text(); ?></div>
+
+			<div class="reply">
+				<?php comment_reply_link(array_merge($args, array('depth' => $depth, 'max_depth' => $args['max_depth']))); ?>
+			</div>
+		</div>
+	</li>
+	<?php
+			break;
+		case 'pingback'  :
+		case 'trackback' :
+	?>
+	<li class="post pingback">
+		<p>
+			<?php _e('Pingback:', 'responsivepanels'); ?> 
+			<?php comment_author_link(); ?>
+			<?php edit_comment_link(__('(Edit)','responsivepanels'), ' '); ?>
+		</p>
+	</li>
+	<?php
+		break;
+	endswitch;
+}
 
 //Required by WordPress
 add_theme_support('automatic-feed-links');

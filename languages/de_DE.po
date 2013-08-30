@@ -4,16 +4,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Responsive Panels 0.0.1\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tags/responsivepanels\n"
-"POT-Creation-Date: 2013-08-30 18:32:11+00:00\n"
-"PO-Revision-Date: 2013-08-30 20:39+0100\n"
+"POT-Creation-Date: 2013-08-30 18:59:38+00:00\n"
+"PO-Revision-Date: 2013-08-30 21:00+0100\n"
 "Last-Translator: Hauke Schade <cnlpete@cnlpete.de>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: de_DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 1.5.4\n"
 "Plural-Forms: nplurals=2; plural=n == 1 ? 0 : 1;\n"
-"Language: de_DE\n"
 
 #: comments.php:4
 msgid ""
@@ -28,15 +28,15 @@ msgid_plural "%1$s Responses to %2$s"
 msgstr[0] "Eine Antwort auf %2$s"
 msgstr[1] "%1$s Antworten auf %2$s"
 
-#: comments.php:23 comments.php:34
+#: comments.php:23 comments.php:36
 msgid "<span class=\"meta-nav\">&larr;</span> Older Comments"
 msgstr "<span class=\"meta-nav\">&larr;</span> Ältere Kommentare"
 
-#: comments.php:24 comments.php:35
+#: comments.php:24 comments.php:37
 msgid "Newer Comments <span class=\"meta-nav\">&rarr;</span>"
 msgstr "Neuere Kommentare %s <span class=\"meta-nav\">&rarr;</span>"
 
-#: comments.php:42
+#: comments.php:44
 msgid "Comments are closed."
 msgstr "Kommentare sind geschlossen."
 
@@ -100,17 +100,17 @@ msgstr "Deine Email Adresse wird nicht veröffentlicht werden."
 msgid "Website"
 msgstr "Webseite"
 
-#: functions.php:122
+#: functions.php:125
 msgctxt "noun"
 msgid "Comment"
 msgstr "Kommentar"
 
-#: functions.php:125
+#: functions.php:128
 msgid "You must be <a href=\"%s\">logged in</a> to post a comment."
 msgstr ""
 "Du musst <a href=\"%s\">eingeloggt</a> sein um Kommentare erfassen zu können."
 
-#: functions.php:129
+#: functions.php:132
 msgid ""
 "Logged in as <a href=\"%1$s\">%2$s</a>. <a href=\"%3$s\" title=\"Log out of "
 "this account\">Log out?</a>"
@@ -118,11 +118,11 @@ msgstr ""
 "Eingeloggt als <a href=\"%1$s\">%2$s</a>. <a href=\"%3$s\" title=\"Vom "
 "Benutzerkonto ausloggen\">Abmelden?</a>"
 
-#: functions.php:134
+#: functions.php:137
 msgid "Required fields are marked %s"
 msgstr "Erforderliche Felder sind mit %s markiert"
 
-#: functions.php:135
+#: functions.php:138
 msgid ""
 "You may use these <abbr title=\"HyperText Markup Language\">HTML</abbr> tags "
 "and attributes: %s"
@@ -130,29 +130,46 @@ msgstr ""
 "Du kannst folgende <abbr title=\"HyperText Markup Language\">HTML</abbr> "
 "Tags und Attribute verwenden: %s"
 
-#: functions.php:155
+#: functions.php:156
+msgid "%s <span class=\"says\">says:</span>"
+msgstr "%s <span class=\"says\">sagt:</span>"
+
+#: functions.php:159
+msgid "Your comment is awaiting moderation."
+msgstr "Dein Kommentar wartet auf Freischaltung."
+
+#. translators: 1: date, 2: time
+#: functions.php:165
+msgid "%1$s at %2$s"
+msgstr "%1$s um %2$s"
+
+#: functions.php:169 functions.php:189 image.php:24
+msgid "(Edit)"
+msgstr "(Bearbeiten)"
+
+#: functions.php:187
+msgid "Pingback:"
+msgstr "Pingback:"
+
+#: functions.php:211
 msgid "Tag"
 msgstr "Tag"
 
-#: functions.php:157
+#: functions.php:213
 msgid "Author"
 msgstr "Autor"
 
-#: functions.php:159
+#: functions.php:215
 msgid "Archive"
 msgstr "Archive"
 
-#: functions.php:165 functions.php:169
+#: functions.php:221 functions.php:225
 msgid "Page %s"
 msgstr "Seite %s"
 
 #: header.php:35
 msgid "Toggle navigation"
 msgstr "Navigation umschalten"
-
-#: image.php:24
-msgid "(Edit)"
-msgstr "(Bearbeiten)"
 
 #: image.php:35
 msgid "Read more &#8250;"
@@ -227,12 +244,3 @@ msgstr "Hauke Schade"
 #. Author URI of the plugin/theme
 msgid "http://hauke-schade.de/"
 msgstr "http://hauke-schade.de/"
-
-#~ msgid "Your comment is awaiting moderation."
-#~ msgstr "Dein Kommentar wartet auf Freischaltung."
-
-#~ msgid "%1$s at %2$s"
-#~ msgstr "%1$s um %2$s"
-
-#~ msgid "Pingback:"
-#~ msgstr "Pingback:"
