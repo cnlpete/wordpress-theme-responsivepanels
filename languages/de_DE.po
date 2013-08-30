@@ -1,0 +1,173 @@
+# Copyright (C) 2013 Hauke Schade
+# This file is distributed under the same license as the Responsive Panels package.
+msgid ""
+msgstr ""
+"Project-Id-Version: Responsive Panels 0.0.1\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tags/responsivepanels\n"
+"POT-Creation-Date: 2013-08-30 17:07:52+00:00\n"
+"PO-Revision-Date: 2013-08-30 19:08+0100\n"
+"Last-Translator: Hauke Schade <cnlpete@cnlpete.de>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.4\n"
+
+#: footer.php:37
+msgid "Archives"
+msgstr "Archive"
+
+#: footer.php:47
+msgid ""
+"Powered by <a href=\"http://wordpress.org\" title=\"%1$s\">%1$s</a>, Theme "
+"by <a href=\"http://www.hauke-schade.de\" title=\"%2$s\">%2$s</a>"
+msgstr ""
+"Betrieben durch <a href=\"http://wordpress.org\" title=\"%1$s\">%1$s</a>, "
+"Theme von <a href=\"http://www.hauke-schade.de\" title=\"%2$s\">%2$s</a>"
+
+#: functions.php:34
+msgid "Header Menu"
+msgstr "Header Menü"
+
+#: functions.php:35
+msgid "Left Footer Menu"
+msgstr "Linkes Fuß-Menü"
+
+#: functions.php:36
+msgid "Right Footer Menu"
+msgstr "Rechtes Fuß-Menü"
+
+#: functions.php:60
+msgid "Untitled Post"
+msgstr "Unbetitelter Eintrag"
+
+#: functions.php:74
+msgid "Footer Left"
+msgstr "Linker Fußbereich"
+
+#: functions.php:76
+msgid "The left footer widget area."
+msgstr "Der linke Fuß-Bereich."
+
+#: functions.php:84
+msgid "Footer Right"
+msgstr "Rechter Fußbereich"
+
+#: functions.php:86
+msgid "The right footer widget area."
+msgstr "Der rechte Fuß-Bereich."
+
+#: functions.php:104
+msgid "%s <span class=\"says\">says:</span>"
+msgstr "%s <span class=\"says\">sagt:</span>"
+
+#: functions.php:107
+msgid "Your comment is awaiting moderation."
+msgstr "Dein Kommentar wartet auf Freischaltung."
+
+#. translators: 1: date, 2: time
+#: functions.php:115
+msgid "%1$s at %2$s"
+msgstr "%1$s um %2$s"
+
+#: functions.php:119 functions.php:138 image.php:24
+msgid "(Edit)"
+msgstr "(Bearbeiten)"
+
+#: functions.php:136
+msgid "Pingback:"
+msgstr "Pingback:"
+
+#: functions.php:160
+msgid "Tag"
+msgstr "Tag"
+
+#: functions.php:162
+msgid "Author"
+msgstr "Autor"
+
+#: functions.php:164
+msgid "Archive"
+msgstr "Archive"
+
+#: functions.php:170 functions.php:174
+msgid "Page %s"
+msgstr "Seite %s"
+
+#: header.php:35
+msgid "Toggle navigation"
+msgstr "Navigation umschalten"
+
+#: image.php:35
+msgid "Read more &#8250;"
+msgstr "Mehr &#8250;"
+
+#: image.php:36
+msgid "Pages:"
+msgstr "Seiten:"
+
+#: image.php:43 single.php:26
+msgid "Categories"
+msgstr "Kategorien"
+
+#: image.php:46 single.php:29
+msgid "Tags"
+msgstr "Tags"
+
+#: image.php:77 index.php:68 search.php:74
+msgid "No WordPress posts found"
+msgstr "Keine WordPress Einträge gefunden"
+
+#: image.php:78 index.php:69 search.php:75
+msgid "There are no WordPress posts to display here."
+msgstr "Es gibt keine Beiträge zum anzeigen."
+
+#: index.php:30 search.php:36
+msgid "Comments: %s"
+msgstr "Kommentare: %s"
+
+#: index.php:52 search.php:58
+msgid "&laquo; Previous Page"
+msgstr "&laquo; Vorherige Seite"
+
+#: index.php:59 search.php:65
+msgid "Next Page &raquo;"
+msgstr "Nächste Seite &raquo;"
+
+#: page.php:15 single.php:25
+msgid "Permalink"
+msgstr "Fester Link"
+
+#: page.php:15 single.php:25
+msgid "Pages"
+msgstr "Seiten"
+
+#: search.php:5
+msgid "Search Results for: %s"
+msgstr "Suchergebnis für: %s"
+
+#: searchform.php:3 searchform.php:5
+msgid "Search"
+msgstr "Suchen"
+
+#. Theme Name of the plugin/theme
+msgid "Responsive Panels"
+msgstr "Responsive Panels"
+
+#. Theme URI of the plugin/theme
+msgid "http://www.hauke-schade.de"
+msgstr "http://www.hauke-schade.de"
+
+#. Description of the plugin/theme
+msgid "responsive panels theme inspired by panels"
+msgstr ""
+"Responsive Panels Theme inspiriert durch das Panels Theme um Twitter "
+"Bootstrap erweitert."
+
+#. Author of the plugin/theme
+msgid "Hauke Schade"
+msgstr "Hauke Schade"
+
+#. Author URI of the plugin/theme
+msgid "http://hauke-schade.de/"
+msgstr "http://hauke-schade.de/"
