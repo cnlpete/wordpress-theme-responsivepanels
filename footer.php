@@ -11,7 +11,14 @@
 				//Process nav menu using our custom nav walker
 				'walker' => new wp_bootstrap_navwalker())); ?>
 
-			<?php dynamic_sidebar('footer-left'); ?>
+			<?php if(!dynamic_sidebar('footer-left')): ?>
+				<div class="white-box">
+					<?php the_widget('WP_Widget_Search'); ?>
+				</div>
+				<div class="white-box">
+					<?php the_widget('WP_Widget_Meta'); ?>
+				</div>
+			<?php endif; ?>
 		</div>
 
 		<div class="col-xs-12 col-sm-6">
@@ -25,7 +32,14 @@
 				//Process nav menu using our custom nav walker
 				'walker' => new wp_bootstrap_navwalker())); ?>
 
-			<?php dynamic_sidebar('footer-right'); ?>
+			<?php if(!dynamic_sidebar('footer-right')): ?>
+				<div class="white-box">
+					<h2><?php _e('Archives');?></h2>
+					<ul>
+						<?php wp_get_archives('type=monthly'); ?>
+					</ul>
+				</div>
+			<?php endif; ?>
 		</div>
 	</div>
 	<div class="row">
