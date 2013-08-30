@@ -12,7 +12,7 @@
 				<header><h1><?php the_title()?></h1></header>
 				<?php the_content()?>
 				<footer>
-					<?php the_date()?> <a href="<?php the_permalink(); ?>"><?php _e('Permalink');?></a> <?php wp_link_pages( array( 'before' => __('Pages'), 'after' =>'' ) ); ?>
+					<?php the_date()?> <a href="<?php the_permalink(); ?>"><?php _e('Permalink', 'responsivepanels');?></a> <?php wp_link_pages(array('before' => __('Pages', 'responsivepanels'), 'after' =>'')); ?>
 				</footer>
 			</div>
 		</article>

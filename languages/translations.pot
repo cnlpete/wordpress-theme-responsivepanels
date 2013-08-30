@@ -1,0 +1,168 @@
+# Copyright (C) 2013 Hauke Schade
+# This file is distributed under the same license as the Responsive Panels package.
+msgid ""
+msgstr ""
+"Project-Id-Version: Responsive Panels 0.0.1\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tags/responsivepanels\n"
+"POT-Creation-Date: 2013-08-30 17:07:52+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2013-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+
+#: footer.php:37
+msgid "Archives"
+msgstr ""
+
+#: footer.php:47
+msgid ""
+"Powered by <a href=\"http://wordpress.org\" title=\"%1$s\">%1$s</a>, Theme "
+"by <a href=\"http://www.hauke-schade.de\" title=\"%2$s\">%2$s</a>"
+msgstr ""
+
+#: functions.php:34
+msgid "Header Menu"
+msgstr ""
+
+#: functions.php:35
+msgid "Left Footer Menu"
+msgstr ""
+
+#: functions.php:36
+msgid "Right Footer Menu"
+msgstr ""
+
+#: functions.php:60
+msgid "Untitled Post"
+msgstr ""
+
+#: functions.php:74
+msgid "Footer Left"
+msgstr ""
+
+#: functions.php:76
+msgid "The left footer widget area."
+msgstr ""
+
+#: functions.php:84
+msgid "Footer Right"
+msgstr ""
+
+#: functions.php:86
+msgid "The right footer widget area."
+msgstr ""
+
+#: functions.php:104
+msgid "%s <span class=\"says\">says:</span>"
+msgstr ""
+
+#: functions.php:107
+msgid "Your comment is awaiting moderation."
+msgstr ""
+
+#. translators: 1: date, 2: time
+#: functions.php:115
+msgid "%1$s at %2$s"
+msgstr ""
+
+#: functions.php:119 functions.php:138 image.php:24
+msgid "(Edit)"
+msgstr ""
+
+#: functions.php:136
+msgid "Pingback:"
+msgstr ""
+
+#: functions.php:160
+msgid "Tag"
+msgstr ""
+
+#: functions.php:162
+msgid "Author"
+msgstr ""
+
+#: functions.php:164
+msgid "Archive"
+msgstr ""
+
+#: functions.php:170 functions.php:174
+msgid "Page %s"
+msgstr ""
+
+#: header.php:35
+msgid "Toggle navigation"
+msgstr ""
+
+#: image.php:35
+msgid "Read more &#8250;"
+msgstr ""
+
+#: image.php:36
+msgid "Pages:"
+msgstr ""
+
+#: image.php:43 single.php:26
+msgid "Categories"
+msgstr ""
+
+#: image.php:46 single.php:29
+msgid "Tags"
+msgstr ""
+
+#: image.php:77 index.php:68 search.php:74
+msgid "No WordPress posts found"
+msgstr ""
+
+#: image.php:78 index.php:69 search.php:75
+msgid "There are no WordPress posts to display here."
+msgstr ""
+
+#: index.php:30 search.php:36
+msgid "Comments: %s"
+msgstr ""
+
+#: index.php:52 search.php:58
+msgid "&laquo; Previous Page"
+msgstr ""
+
+#: index.php:59 search.php:65
+msgid "Next Page &raquo;"
+msgstr ""
+
+#: page.php:15 single.php:25
+msgid "Permalink"
+msgstr ""
+
+#: page.php:15 single.php:25
+msgid "Pages"
+msgstr ""
+
+#: search.php:5
+msgid "Search Results for: %s"
+msgstr ""
+
+#: searchform.php:3 searchform.php:5
+msgid "Search"
+msgstr ""
+
+#. Theme Name of the plugin/theme
+msgid "Responsive Panels"
+msgstr ""
+
+#. Theme URI of the plugin/theme
+msgid "http://www.hauke-schade.de"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid "responsive panels theme inspired by panels"
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Hauke Schade"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "http://hauke-schade.de/"
+msgstr ""

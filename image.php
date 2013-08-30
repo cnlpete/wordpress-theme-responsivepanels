@@ -10,7 +10,7 @@
 					<h1 class="post-title"><?php the_title(); ?></h1>
 					<p class="col-xs-6">
 						<a href="<?php echo get_permalink($post->post_parent); ?>" rel="gallery">
-							&loquo; <?php echo get_the_title($post->post_parent); ?>
+							&laquo; <?php echo get_the_title($post->post_parent); ?>
 						</a>
 					</p>
 					<div class="col-xs-6 text-right">
@@ -33,15 +33,18 @@
 					</a>
 					<?php if(!empty($post->post_excerpt)) the_excerpt(); ?>
 					<?php the_content(__('Read more &#8250;', 'responsive')); ?>
-					<?php wp_link_pages(array('before' => '<div class="pagination">' . __('Pages:'), 'after' => '</div>')); ?>
+					<?php wp_link_pages(array('before' => '<div class="pagination">' . __('Pages:', 'responsivepanels'), 'after' => '</div>')); ?>
 				</div>
 			</div>
 			<div class="clearfix"></div>
 
 			<div class="col-xs-12">
 				<div class="white-box">
-					<?php _e('Categories');?>: <?php the_category(', '); ?>
-					<?php if(has_tag()) { echo "<br />"; the_tags( _e('Tags') . ': ', ', '); } ?> 
+					<?php _e('Categories', 'responsivepanels');?>: <?php the_category(', '); ?>
+					<?php if(has_tag()) { 
+						echo "<br />"; 
+						the_tags( _e('Tags', 'responsivepanels') . ': ', ', ');
+					} ?> 
 				</div>
 			</div>
 			<div class="clearfix"></div>
@@ -71,8 +74,8 @@
 <?php else: ?>
 	<div class="row">
 		<div id="col-xs-12">
-			<h1><?php _e('No WordPress posts found','responsivepanels')?></h1>
-			<p><?php _e('There are no WordPress posts to display here.','responsivepanels')?></p>
+			<h1><?php _e('No WordPress posts found', 'responsivepanels')?></h1>
+			<p><?php _e('There are no WordPress posts to display here.', 'responsivepanels')?></p>
 		</div>
 	</div>
 <?php endif; ?>

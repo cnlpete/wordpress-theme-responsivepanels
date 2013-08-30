@@ -22,15 +22,18 @@
 				<?php the_content()?>
 			</article>
 			<footer class="white-box">
-				<?php the_date()?> <a href="<?php the_permalink(); ?>"><?php _e('Permalink');?></a> <?php wp_link_pages( array( 'before' => __('Pages'), 'after' =>'' ) ); ?><br/>
-				<?php _e('Categories');?>: <?php the_category(', '); ?>
-				<?php if(has_tag()) { echo "<br />"; the_tags( _e('Tags') . ': ', ', '); }?>
+				<?php the_date()?> <a href="<?php the_permalink(); ?>"><?php _e('Permalink', 'responsivepanels');?></a> <?php wp_link_pages(array('before' => __('Pages', 'responsivepanels'), 'after' =>'')); ?><br/>
+				<?php _e('Categories', 'responsivepanels'); ?>: <?php the_category(', '); ?>
+				<?php if(has_tag()) {
+					echo "<br />";
+					the_tags( _e('Tags', 'responsivepanels') . ': ', ', ');
+				}?>
 			</footer>
 		</article>
 
 		<div class="col-xs-12">
 			<div class="white-box">
-				<?php comments_template( '', true ); ?>
+				<?php comments_template('', true); ?>
 			</div>
 		</div>
 	<?php endwhile;endif;?>

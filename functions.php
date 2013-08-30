@@ -50,24 +50,6 @@ $custom_header_support = array(
 );
 add_theme_support('custom-header', $custom_header_support);
 
-register_default_headers(array(
-	'bluesky' => array(
-		'url' => '%s/headers/001.jpg',
-		'thumbnail_url' => '%s/headers/thumbnails/001_thumb.jpg',
-		'description' => __('Rainbow Lake', 'responsivepanels')
-	),
-	'grass' => array(
-		'url' => '%s/headers/002.jpg',
-		'thumbnail_url' => '%s/headers/thumbnails/002_thumb.jpg',
-		'description' => __('Green Fields', 'responsivepanels')
-	),
-	'wave' => array(
-		'url' => '%s/headers/003.jpg',
-		'thumbnail_url' => '%s/headers/thumbnails/003_thumb.jpg',
-		'description' => __('Haze', 'responsivepanels')
-	),
-));
-
 add_theme_support('custom-background', array(
 	'default-image' => get_stylesheet_directory_uri() . '/img/bg.jpg',
 	'default-color' => 'FFFFFF'

@@ -49,14 +49,14 @@
 	<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
 		<?php if("" != get_next_posts_link('next')): ?>
 			<div class="white-box text-left">
-				<?php next_posts_link(__('&laquo; Previous Page')); ?>
+				<?php next_posts_link(__('&laquo; Previous Page', 'responsivepanels')); ?>
 			</div>
 		<?php endif; ?>
 	</div>
 	<div class="col-xs-6 col-sm-4 col-sm-offset-4 col-md-3 col-md-offset-6 col-lg-2 col-sm-offset-8">
 		<?php if("" != get_previous_posts_link('prev')): ?>
 			<div class="white-box text-right">
-				<?php previous_posts_link(__('Next Page &raquo;')); ?>
+				<?php previous_posts_link(__('Next Page &raquo;', 'responsivepanels')); ?>
 			</div>
 		<?php endif; ?>
 	</div>
@@ -65,8 +65,8 @@
 <?php else : ?>
 	<div class="row">
 		<div id="col-xs-12">
-			<h1><?php _e('No WordPress posts found','responsivepanels')?></h1>
-			<p><?php _e('There are no WordPress posts to display here.','responsivepanels')?></p>
+			<h1><?php _e('No WordPress posts found', 'responsivepanels')?></h1>
+			<p><?php _e('There are no WordPress posts to display here.', 'responsivepanels')?></p>
 		</div>
 	</div>
 <?php endif; ?>
