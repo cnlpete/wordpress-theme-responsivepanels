@@ -18,11 +18,10 @@
 						class="thumbnail">
 					<?php if(has_post_thumbnail()) : ?>
 						<?php the_post_thumbnail('medium', array('class' => "img-responsive")); ?>
-					<?php else: ?>
-						<div class="text-title">
-							<?php the_title_attribute(); ?>
-						</div>
 					<?php endif; ?>
+					<div class="caption">
+						<?php the_title_attribute(); ?>
+					</div>
 				</a>
 				<div class="row">
 					<div class="col-xs-12 text-right">
