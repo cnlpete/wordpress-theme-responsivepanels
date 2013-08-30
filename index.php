@@ -27,7 +27,7 @@
 				<div class="row">
 					<div class="col-xs-12 text-right">
 						<a href="<?php the_permalink()?>#comments" title="<?php comments_number(); ?>">
-							<?php printf(__('Comments: %s'), '<span class="badge">' . get_comments_number() . '</span>'); ?>
+							<?php printf(__('Comments: %s', 'responsivepanels'), '<span class="badge">' . get_comments_number() . '</span>'); ?>
 						</a>
 					</div>
 				</div>
