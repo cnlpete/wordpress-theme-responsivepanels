@@ -194,6 +194,100 @@ function responsivepanels_comment( $comment, $args, $depth ) {
 	endswitch;
 }
 
+function responsivepanels_gallery_shortcode($output = '', $attr, $content = false, $tag = false) {
+	$post = get_post();
+
+	// do the default thing
+	if (is_feed()) {
+		$output = '';
+		return $output;
+	}
+
+	// We're trusting author input, so let's at least make sure it looks like a valid orderby statement
+	if (isset($attr['orderby'])) {
+		$attr['orderby'] = sanitize_sql_orderby( $attr['orderby'] );
+		if (!$attr['orderby'])
+			unset($attr['orderby']);
+	}
+
+	extract(shortcode_atts(array(
+		'order'      => 'ASC',
+		'orderby'    => 'menu_order ID',
+		'id'         => $post ? $post->ID : 0,
+		'columns'    => 3,
+		'size'       => 'thumbnail',
+		'include'    => '',
+		'exclude'    => ''
+	), $attr, 'gallery'));
+
+	$id = intval($id);
+	if ('RAND' == $order)
+		$orderby = 'none';
+
+	if (!empty($include)) {
+		$_attachments = get_posts(array(
+				'include' => $include,
+				'post_status' => 'inherit',
+				'post_type' => 'attachment',
+				'post_mime_type' => 'image',
+				'order' => $order,
+				'orderby' => $orderby));
+
+		$attachments = array();
+		foreach ($_attachments as $key => $val)
+			$attachments[$val->ID] = $_attachments[$key];
+	}
+	elseif (!empty($exclude)) {
+		$attachments = get_children(array(
+				'post_parent' => $id,
+				'exclude' => $exclude,
+				'post_status' => 'inherit',
+				'post_type' => 'attachment',
+				'post_mime_type' => 'image',
+				'order' => $order,
+				'orderby' => $orderby));
+	}
+	else {
+		$attachments = get_children(array(
+				'post_parent' => $id,
+				'post_status' => 'inherit',
+				'post_type' => 'attachment',
+				'post_mime_type' => 'image',
+				'order' => $order,
+				'orderby' => $orderby));
+	}
+
+	if (empty($attachments))
+		return '';
+
+	$i = 0;
+	$output .= "<div class='row'>";
+	foreach ($attachments as $id => $attachment) {
+		$url = get_attachment_link($_post->ID);
+		$image_output = wp_get_attachment_image($id, $size, false);
+		$image_meta = wp_get_attachment_metadata($id);
+
+		$orientation = '';
+		if (isset( $image_meta['height'], $image_meta['width']))
+			$orientation = ($image_meta['height'] > $image_meta['width']) ? 'portrait' : 'landscape';
+
+		$output .= "<div class='gallery-item col-xs-6 col-sm-4 col-md-3 col-lg-2'>";
+		$output .= "
+			<a href='" . $url . "' title='" . $attachment->post_title . "' class='gallery-icon thumbnail {$orientation}'>$image_output";
+		if (trim($attachment->post_excerpt)) {
+			$output .= "
+				<div class='caption wp-caption-text gallery-caption'>
+				" . wptexturize($attachment->post_excerpt) . "
+				</div>";
+		}
+		$output .= "</a></div>";
+	}
+	$output .= "</div>";
+
+	return $output;
+}
+add_filter('post_gallery', 'responsivepanels_gallery_shortcode', 10, 4);
+
 //Required by WordPress
 add_theme_support('automatic-feed-links');
 
