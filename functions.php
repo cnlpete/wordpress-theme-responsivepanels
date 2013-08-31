@@ -263,7 +263,7 @@ function responsivepanels_gallery_shortcode($output = '', $attr, $content = fals
 	$i = 0;
 	$output .= "<div class='row'>";
 	foreach ($attachments as $id => $attachment) {
-		$url = get_attachment_link($_post->ID);
+		$url = get_attachment_link($id);
 		$image_output = wp_get_attachment_image($id, $size, false);
 		$image_meta = wp_get_attachment_metadata($id);
 
